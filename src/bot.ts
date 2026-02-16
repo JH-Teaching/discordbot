@@ -47,7 +47,10 @@ client.on(Events.MessageCreate, async (message: Message) => {
     } catch (error) {
       console.error('❌ Error sending reply:', error);
     }
-  } else if (message.mentions.has(client.user!.id)) {
+  } else if (
+    message.mentions.has(client.user!.id) ||
+    message.channel.id === "1467044761050550458"
+    ) {
     console.log(`💬 Mentioned in channel by ${message.author.tag}: ${message.content}`);
 
     const N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL;
