@@ -29,7 +29,8 @@ client.on(Events.MessageCreate, async (message: Message) => {
         const body = {
           type: 'direct_message',
           userId: message.author.id,
-          message: message.content
+          message: message.content,
+          messageId: message.id
         };
 
         await fetch(N8N_WEBHOOK_URL, {
@@ -60,6 +61,7 @@ client.on(Events.MessageCreate, async (message: Message) => {
         userId: message.author.id,
         message: message.content,
         channelId: message.channel.id,
+        messageId: message.id
       };
 
       await fetch(N8N_WEBHOOK_URL, {
